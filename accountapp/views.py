@@ -6,7 +6,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.urls import reverse, reverse_lazy
 from django.utils.functional import lazy
-from django.views.generic import CreateView
+        from django.views.generic import CreateView
 
 from accountapp.models import HelloWolrd
 
