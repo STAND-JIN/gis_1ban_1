@@ -6,7 +6,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.urls import reverse, reverse_lazy
 from django.utils.functional import lazy
-        from django.views.generic import CreateView
+from django.views.generic import CreateView
 
 from accountapp.models import HelloWolrd
 
@@ -28,9 +28,6 @@ def hello_world(request):
         hello_world_list = HelloWolrd.objects.all()
         return render(request, 'accountapp/hello_world.html',
                       context={'hello_world_list': hello_world_list})
-
-
-
 
 
 class AccountCreateView(CreateView):
