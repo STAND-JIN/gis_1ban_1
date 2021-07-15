@@ -19,6 +19,7 @@
                     SignUp
                 </a>
             </span>
+                <!-- pk 넣어주지 않으면 적용 안됨 -->
             {% else %}
                 <span>
                     <a href="{% url 'accountapp:detail' pk=user.pk %}">
