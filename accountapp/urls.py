@@ -19,7 +19,6 @@ urlpatterns = [
     path('create/', AccountCreateView.as_view(), name='create'),
     # pk = primary key
     path('detail/<int:pk>', AccountDetailView.as_view(), name='detail'),
-
     path('update/<int:pk>', AccountUpdateView.as_view(), name='update'),
     path('delete/<int:pk>', AccountDeleteView.as_view(), name='delete'),
 ]
