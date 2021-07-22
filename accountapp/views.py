@@ -19,7 +19,7 @@ app_name = 'accountapp'
 
 
 @login_required
-# (login_url=reverse_lazy('accountapp:login')) --> url 직접 설정
+# (login_url=reverse_lazy('accountapp:login')) --> 커스텀 url을 사용하는 경우 url 직접 설정
 # decorator는 메소드가 아닌 함수에 사용. 메소드는 다른 방법 사용.
 def hello_world(request):
     if request.method == 'POST':
@@ -50,9 +50,7 @@ class AccountDetailView(DetailView):
     context_object_name = 'target_user'
     template_name = 'accountapp/detail.html'
 
-
 has_ownership = [login_required, account_ownership_required]
-
 
 @method_decorator(has_ownership, 'get')
 @method_decorator(has_ownership, 'post')
