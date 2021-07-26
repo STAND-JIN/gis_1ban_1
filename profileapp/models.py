@@ -5,6 +5,7 @@ from django.db import models
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,
+                                # ex) target_user.profile
                                 related_name='profile')
 
     image = models.ImageField(upload_to='profile/', null=True)
