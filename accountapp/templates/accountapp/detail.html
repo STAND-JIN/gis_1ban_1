@@ -13,9 +13,11 @@
         <!-- target_user의 profile에 있는 nickname을 출력 -->
             <h2 class="NNS_B">
                 {{ target_user.profile.nickname }}
+                {% if user == target_user %}
                 <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
                     edit
                 </a>
+                {% endif %}
             </h2>
             <h5>{{ target_user.profile.message }}</h5>
         {% else %}
