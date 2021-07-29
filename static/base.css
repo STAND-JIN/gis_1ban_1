@@ -31,3 +31,19 @@
 .NNS_B {
     font-family: 'NanumSquareB', cursive;
 }
+
+.round_button {
+    color: black;
+    /* 글씨 꾸미기(밑줄 등등) */
+    text-decoration: none;
+    /* 0 0(2개 모두 그림자 위치) 3px(그림자 크기) black(그림자 색깔) */
+    box-shadow: 0 0 3px black;
+    border-radius: 20rem;
+    padding: 0.3rem;
+}
+
+/* 어떤 행동을 했을 때 일어나는 조건 */
+/* round_button에 마우스를 올렸을 때 */
+.round_button:hover {
+    color: dimgray;
+}

@@ -45,6 +45,8 @@ class AccountCreateView(CreateView):
     template_name = 'accountapp/create.html'
 
     def get_success_url(self):
+        # profile처럼 profile의 user가 필요한 것이 아니므로 곧바로 연결 가능
+        # self.object == target.user
         return reverse('accountapp:detail', kwargs={'pk': self.object.pk})
 
 class AccountDetailView(DetailView):
