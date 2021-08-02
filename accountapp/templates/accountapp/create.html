@@ -9,6 +9,7 @@
     </div>
     <div>
         <form action="{% url 'accountapp:create' %}" method="post">
+            {# Django에서 기본적으로 제공하는 보안 시스템 #}
             {% csrf_token %}
             {% bootstrap_form form %}
             <div class="m-4">

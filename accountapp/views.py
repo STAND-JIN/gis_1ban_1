@@ -37,8 +37,11 @@ def hello_world(request):
         return render(request, 'accountapp/hello_world.html',
                       context={'hello_world_list': hello_world_list})
 
+# CreateView를 상속받아 클래스 생성
 class AccountCreateView(CreateView):
+    # Django에서 기본적으로 제공하는 User model 사용
     model = User
+    # User model을 만들 때 필요한 form 생성(내장클래스인 UserCreationForm 사용)
     form_class = UserCreationForm
     # 클래스와 함수의 호출방식이 다르기 때문에 reverse_lazy 사용.
     # success_url = reverse_lazy('accountapp:hello_world')
@@ -62,7 +65,9 @@ class AccountUpdateView(UpdateView):
     model = User
     form_class = AccountCreationForm
     context_object_name = 'target_user'
+    # 함수는 reverse, 클래스는 reverse_lazy 사용
     # success_url = reverse_lazy('accountapp:hello_world')
+    # User에게 보게 될 html
     template_name = 'accountapp/update.html'
 
     def get_success_url(self):

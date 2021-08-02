@@ -285,4 +285,16 @@ let magicGrid = new MagicGrid({
   useMin: true
 });
 
+// masonrys = 벽돌형 레이아웃
+// document = magicgrid를 호출하는 html 전체 문서
+// img 태그가 붙은 모든 것을 불러옴.
+
+var masonrys = document.getElementsByTagName("img")
+// masonrys 길이만큼 for문을 돌려 이미지가 로드될 때마다 positionItems을 불러옴.
+for (let i = 0; masonrys.length; i++) {
+  masonrys[i].addEventListener('load', function () {
+    magicGrid.positionItems();
+  }, false)
+}
+
 magicGrid.listen();
