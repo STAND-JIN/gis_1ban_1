@@ -18,9 +18,13 @@
             {# 게시글 상세페이지 내에 Button 만들기 #}
             <div>
                 {# 동그란 알약 모양으로 버튼을 만들고 px-5는 x축으로 padding값을 5 준다는 의미. #}
-                <a href="{% url 'articleapp:update' pk=target_article.pk %} }}"
+                <a href="{% url 'articleapp:update' pk=target_article.pk %}"
                    class="btn btn-success rounded-pill px-5">
                    Update
+                </a>
+                <a href="{% url 'articleapp:detail' pk=target_article.pk %}"
+                   class="btn btn-danger rounded-pill px-5">
+                   Delete
                 </a>
             </div>
         </div>
