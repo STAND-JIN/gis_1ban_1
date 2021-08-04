@@ -2,19 +2,28 @@
 
 {% block content %}
 
-    <div class="container">
+    <div class="container text-center">
 
-        <div>
+        <div class="my-5">
             {# 제목 / 글쓴이 / 날짜 #}
-            <h1>{{ target_article.title }}</h1>
+            <h1 class="NNS_B">{{ target_article.title }}</h1>
             {# writer(user)의 프로필에 있는 닉네임을 표시 #}
             <h4>{{ target_article.writer.profile.nickname }}</h4>
             <p>{{ target_article.created_at }}</p>
         </div>
-        <div>
+        <hr>
+        <div class="my-5">
             {# 게시글 내용 #}
-            <img src="{{ target_article.image.url }}" alt="">
-            {{ target_article.content }}
+            <img src="{{ target_article.image.url }}"
+                 alt=""
+                 class="article_image">
+
+            <div class="article_content">
+                 {{ target_article.content }}
+            </div>
+
+            {# 유저와 작성자가 일치할 때만 버튼 노출 #}
+            {% if target_article.writer == user %}
             {# 게시글 상세페이지 내에 Button 만들기 #}
             <div>
                 {# 동그란 알약 모양으로 버튼을 만들고 px-5는 x축으로 padding값을 5 준다는 의미. #}
@@ -27,8 +36,12 @@
                    Delete
                 </a>
             </div>
+            {% endif %}
         </div>
-
+        <hr>
+        <div>
+            {# 댓글 #}
+        </div>
 
     </div>
 

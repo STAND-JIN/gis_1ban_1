@@ -47,3 +47,17 @@
 .round_button:hover {
     color: dimgray;
 }
+/* 게시하는 사진에 적용할 수 있는 클래스 */
+.article_image {
+    border-radius: 2rem;
+    width: 70%;
+    box-shadow: 0 0 1rem grey;
+}
+
+.article_content {
+    font-size: 1.1rem;
+    /* 왼쪽 정렬 */
+    text-align: left;
+    /*margin: 상하;, 좌우; */
+    margin: 2rem; 0;
+}
