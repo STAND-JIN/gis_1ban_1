@@ -55,5 +55,5 @@ class ArticleListView(ListView):
     # 개체 하나가 아닌 리스트로 가져옴
     context_object_name = 'article_list'
     template_name = 'articleapp/list.html'
-    paginate_by = 20
+    paginate_by = 5
 

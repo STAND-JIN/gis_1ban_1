@@ -1,0 +1,23 @@
+    <div class="text-center my-5">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"
+               class="btn btn-secondary rounded-pill">
+                {{ page_obj.previous_page_number }}
+            </a>
+
+        {% endif %}
+        {# 어디로 이동하지 않고 현재 화면에서 머무르기 #}
+            <a href="#"
+               class="btn btn-dark rounded-pill">
+                {# 현재 페이지 넘버 출력 #}
+                {{ page_obj.number }}
+            </a>
+        {# 다음 페이지 있는지 여부를 확인 #}
+        {% if page_obj.has_next %}
+            {# 페이지 넘버를 get 방식으로 받기 때문에 주소창에 쿼리로 입력하면 됨 #}
+            <a href="?page={{ page_obj.next_page_number }}"
+               class="btn btn-secondary rounded-pill">
+                {{ page_obj.next_page_number }}
+            </a>
+        {% endif %}
+    </div>
