@@ -37,9 +37,19 @@
         {% endfor %}
     </div>
 
-{# 외부에서 스크립트 가져오기 #}
+    {# 외부에서 스크립트 가져오기 #}
     <script src="{% static 'js/magicgrid.js' %}"></script>
-
+    {# 페이지 넘버를 표현하는 방법이나 스타일을 저장하는 html을 따로 만들어서 불러오기 #}
     {% include 'snippets/pagination.html' %}
 
+    <div class="text-center my-5">
+        <a href="{% url 'articleapp:create' %}"
+           class="btn btn-dark rounded-pill material-icons">
+            brush
+        </a>
+        <a href="{% url 'articleapp:create' %}"
+           class="btn btn-outline-dark rounded-pill px-5">
+           Create Article
+        </a>
+    </div>
 {% endblock %}

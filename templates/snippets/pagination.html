@@ -15,6 +15,7 @@
         {# 다음 페이지 있는지 여부를 확인 #}
         {% if page_obj.has_next %}
             {# 페이지 넘버를 get 방식으로 받기 때문에 주소창에 쿼리로 입력하면 됨 #}
+            {# 나중에 재사용할만한 거리들을 모아서 관리하는 것이기 때문에 개인 취향에 따라 다름 #}
             <a href="?page={{ page_obj.next_page_number }}"
                class="btn btn-secondary rounded-pill">
                 {{ page_obj.next_page_number }}
