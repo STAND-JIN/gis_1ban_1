@@ -71,3 +71,11 @@
     padding: 1rem;
     font-size: 1.1rem;
 }
+
+@media screen and (max-width: 500px)  {
+    html {
+        /* Default font-size = 16px */
+        /* rem은 html font-size의 영향을 맞는 크기 단위이기 때문에 */
+        font-size: 13px;
+    }
+}

@@ -5,8 +5,13 @@
 {% block content %}
 
     <style>
+        .container {
+            padding: 0;
+            margin: 0 auto;
+        }
         .container div {
-              width: 280px;
+              width: 45%;
+                max-width: 200px;
               display: flex;
               justify-content: center;
               align-items: center;
@@ -14,7 +19,7 @@
               border-radius: 1rem;
                 flex-direction: column;
                 box-shadow: 0 0 1rem darkgray;
-    }
+        }
 
         div img {
             width: 100%;
@@ -22,18 +27,15 @@
         }
     </style>
         {# my-5는 수직으로 5만큼 마진 여백 #}
-    <div class="container my-5">
+    <div class="container my-3">
         {# 게시글을 이미지 기반으로 작성할 공간 #}
-
         {% for article in article_list %}
-
             <div>
                 <a href="{% url 'articleapp:detail' pk=article.pk %}">
                     <img src="{{ article.image.url }}" alt="">
                 </a>
                 <span class="NNS_B m-2">{{ article.title }}</span>
             </div>
-
         {% endfor %}
     </div>
 
