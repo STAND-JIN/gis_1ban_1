@@ -34,10 +34,8 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
 
     def get_context_data(self, **kwargs):
         # project 안에 있는 article만 가져와 article_list에 담기
-        article_list = Article.objects.filer(project=self.object)
+        article_list = Article.objects.filter(project=self.object)
         return super().get_context_data(object_list=article_list, **kwargs)
-
-
 
 class ProjectListView(ListView):
     model = Project
