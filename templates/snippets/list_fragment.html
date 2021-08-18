@@ -1,0 +1,52 @@
+
+{% load static %}
+
+    <style>
+        .container {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        .container div {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              {# 1rem = 16px #}
+              border-radius: 1rem;
+                flex-direction: column;
+
+        }
+
+        div img {
+            width: 7rem;
+            height: 7rem;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+
+    </style>
+        {# my-5는 수직으로 5만큼 마진 여백 #}
+    <div class="container my-3">
+        {# 게시글을 이미지 기반으로 작성할 공간 #}
+        {% for project in project_list %}
+            <div>
+                <a href="{% url 'projectapp:detail' pk=project.pk %}">
+                    <img src="{{ project.image.url }}" alt="">
+                </a>
+                {# | truncatechars는 글자 수 절삭을 의미 #}
+                <span class="NNS_B m-2">{{ project.name | truncatechars:10 }}</span>
+            </div>
+        {% endfor %}
+    </div>
+
+    {# 외부에서 스크립트 가져오기 #}
+    <script src="{% static 'js/magicgrid.js' %}"></script>
+    {# 페이지 넘버를 표현하는 방법이나 스타일을 저장하는 html을 따로 만들어서 불러오기 #}
+    {% include 'snippets/pagination.html' %}
+
+    <div class="text-center my-5">
+        <a href="{% url 'projectapp:create' %}"
+           class="btn btn-outline-dark rounded-pill px-5">
+           Create Project
+        </a>
+    </div>

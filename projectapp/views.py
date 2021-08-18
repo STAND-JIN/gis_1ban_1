@@ -5,7 +5,9 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, ListView
+from django.views.generic.list import MultipleObjectMixin
 
+from articleapp.models import Article
 from projectapp.forms import ProjectCreationForm
 from projectapp.models import Project
 
@@ -23,10 +25,18 @@ class ProjectCreateView(CreateView):
     def get_success_url(self):
         return reverse('projectapp:detail', kwargs={'pk': self.object.pk})
 
-class ProjectDetailView(DetailView):
+class ProjectDetailView(DetailView, MultipleObjectMixin):
     model = Project
     context_object_name = 'target_project'
     template_name = 'projectapp/detail.html'
+
+    paginate_by = 20
+
+    def get_context_data(self, **kwargs):
+        # project 안에 있는 article만 가져와 article_list에 담기
+        article_list = Article.objects.filer(project=self.object)
+        return super().get_context_data(object_list=article_list, **kwargs)
+
 
 
 class ProjectListView(ListView):
