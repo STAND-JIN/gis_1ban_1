@@ -11,3 +11,8 @@ class Project(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     # 작성받을 요소들 입력이 끝났으면 migration 해주기
     # 입력받을 form을 생성. projectapp/form.py 생성
+
+    # Project의 name을 string으로 출력
+    # e.g. 새로운 Article을 create할 때 선택할 수 있는 게시판들의 이름 노출
+    def __str__(self):
+        return f'{self.name}'
