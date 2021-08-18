@@ -34,3 +34,4 @@ class ProjectListView(ListView):
     # 프로젝트의 리스트를 담고 있어야 되기 때문에 다른 클래스와 달리 context_object_name이 'project_list'
     context_object_name = 'project_list'
     template_name = 'projectapp/list.html'
+    paginate_by = 20
