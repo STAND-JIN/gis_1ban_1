@@ -13,3 +13,6 @@ class Subscription(models.Model):
 
     class Meta:
         unique_together = ['user', 'project']
+
+# 다른 부분(article, project 등등)은 model에 클래스 생성 이후 Form도 같이 만들어주나
+# subscription의 경우 user에게 입력받아야할 값이 따로 없기 때문에 Form을 만들 필요 없음
