@@ -21,3 +21,5 @@ class Article(models.Model):
     # auto_now_add=True 는 게시글이 DB에 저장되는 시점을 기준으로 자동 입력
     # 따로 User에게 입력받거나 우리가 직접 입력해줄 수고로움을 덜 수 잇음
     created_at = models.DateField(auto_now_add=True)
+
+    like = models.IntegerField(default=0)
