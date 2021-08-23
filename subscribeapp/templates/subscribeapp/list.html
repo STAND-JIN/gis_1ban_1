@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div>
+        {# list_fragment에 이미 article_list를 호출하는 내용이 포함되어 있기 때문에 추가로 넣어줄 필요 없음 #}
+        {% include 'snippets/list_fragment.html' %}
+    </div>
+
+{% endblock %}
