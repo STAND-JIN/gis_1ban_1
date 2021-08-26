@@ -30,7 +30,7 @@
                  class="article_image">
 
             <div class="article_content">
-                 {{ target_article.content }}
+                 {{ target_article.content | safe }}
             </div>
 
             {# 유저와 작성자가 일치할 때만 버튼 노출 #}
